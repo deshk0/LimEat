@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
+import {AppCharacteristics} from './components/AppCharacteristics'
 
 
 export class RightSideApp extends React.Component{
@@ -73,35 +74,54 @@ export class RightSideApp extends React.Component{
                 <div id="container-3">
                     <div id="characteristic">
                         <div class="black">Индекс массы тела:</div>
+                        
                         <div class="characteristic-container">
+                            {/*
                             <div class="characteristic-container-avatar">
                                 <div><img id="characteristic-container-avatar-icon" src="https://dota2.ru/img/heroes/pudge/portrait.jpg" /></div>
                             </div>
+                            */}
                             <div class="characteristic-container-characteristic">
-                                <div>
-                                    <div class="black-d">Рост</div>
-                                    <input class="characteristic-input" />
-                                </div>
-                                <div>
-                                    <div class="black-d">Вес</div>
-                                    <input class="characteristic-input" />
-                                </div>
-                                <div>
-                                    <div class="black-d">Возраст</div>
-                                    <input class="characteristic-input" />
-                                </div>
-                            </div>
-                            <div class="characteristic-container-result">
-                                <div class="characteristic-container-traning">
+                                <div style={{display:"flex"}}>
+                                    <div>
+                                        <div class="black-d">Рост</div>
+                                        <input class="characteristic-input"/>
+                                    </div>
+                                    <div>
+                                        <div class="black-d">Вес</div>
+                                        <input class="characteristic-input"/>
+                                    </div>
+                                    <div>
+                                        <div class="black-d">Возраст</div>
+                                        <input class="characteristic-input"/>
+                                    </div>
+                                    <div class="characteristic-container-traning">
                                     <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px"}}>Уровень физической нагрузки</div>
-                                    <select id="characteristic-container-select"></select>
+                                    <select id="characteristic-container-select">
+                                        <option>Минимальные нагрузки(сидячая работа)</option>
+                                        <option>Легкие упражнения 1-3 раза в неделю</option>
+                                        <option>Тренировки 4-5 раз в неделю</option>
+                                        <option>Интенсивные тренировки 4-5 раз в неделю</option>
+                                        <option>Ежедневные тренировки</option>
+                                        <option>Тяжелая физическая работа</option>
+                                    </select>
                                 </div>
+                                </div>
+                                <AppCharacteristics />
+                                {/* 
                                 <div>
                                     <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px",marginLeft:"62px", marginTop:"20px"}}>Результат</div>
-                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>Индекс массы тела</div>
-                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>Суточная норма калорий: 1860.2 кКад</div>
-                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>Нормальный вес: от 70 кг</div>
+                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
+                                        Индекс массы тела:
+                                    </div>
+                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
+                                        Суточная норма калорий: кКал
+                                    </div>
+                                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
+                                        Нормальный вес: от кг
+                                    </div>
                                 </div>
+                                */}
                             </div>
                         </div>
                     </div>
