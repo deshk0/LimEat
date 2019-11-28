@@ -53,34 +53,19 @@ export class RightSideApp extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div id="container-2">
-                    <div id="interesting">
-                        <div class="black">Вам понравиться:</div>
-                        <div id="interesting-container">
-                            <div class="interesting-containe-block1">
-                                <img src="/" />
-                            </div>
-                            <div class="interesting-containe-text">
-                                <b class="black">Рецепт:</b><br />
-                                <span style={{fontSize:"18px",fontWeight:"normal",color:"black",marginTop:"17px",marginBottom:"23px"}}>Как правильно готовить рыбу</span><br />
-                                <span style={{fontSize:"18px",fontWeight:"normal",color:"gray"}}>Вкусно и здорово</span>
-                            </div>
-                            <div>
-                                <button class="interesting-containe-button">Читать</button>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
+                
                 <div id="container-3">
                     <div id="characteristic">
                         <div class="black">Индекс массы тела:</div>
-                        
+                        <AppCharacteristics />
+
+                        {/*
                         <div class="characteristic-container">
                             {/*
                             <div class="characteristic-container-avatar">
                                 <div><img id="characteristic-container-avatar-icon" src="https://dota2.ru/img/heroes/pudge/portrait.jpg" /></div>
                             </div>
-                            */}
+                            
                             <div class="characteristic-container-characteristic">
                                 <div style={{display:"flex"}}>
                                     <div>
@@ -108,7 +93,7 @@ export class RightSideApp extends React.Component{
                                 </div>
                                 </div>
                                 <AppCharacteristics />
-                                {/* 
+                                
                                 <div>
                                     <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px",marginLeft:"62px", marginTop:"20px"}}>Результат</div>
                                     <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
@@ -121,9 +106,9 @@ export class RightSideApp extends React.Component{
                                         Нормальный вес: от кг
                                     </div>
                                 </div>
-                                */}
+                                
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>
@@ -131,3 +116,25 @@ export class RightSideApp extends React.Component{
     }
     
 }
+
+
+/*
+<div id="container-2">
+    <div id="interesting">
+        <div class="black">Вам понравиться:</div>
+        <div id="interesting-container">
+            <div class="interesting-containe-block1">
+                <img src="/" />
+            </div>
+            <div class="interesting-containe-text">
+                <b class="black">Рецепт:</b><br />
+                <span style={{fontSize:"18px",fontWeight:"normal",color:"black",marginTop:"17px",marginBottom:"23px"}}>Как правильно готовить рыбу</span><br />
+                <span style={{fontSize:"18px",fontWeight:"normal",color:"gray"}}>Вкусно и здорово</span>
+            </div>
+            <div>
+                <button class="interesting-containe-button">Читать</button>
+            </div>
+        </div>
+    </div> 
+</div>
+*/

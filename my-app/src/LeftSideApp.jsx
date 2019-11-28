@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {AppDishesInput} from './components/AppDishesInput'
+import {AppDishes} from './components/AppDishesInput'
 
 
 export class LeftSideApp extends React.Component{
     render(){
         return(
             <div class="leftBlock">
+                {/* 
                 <div id="calendar">
                     <button class="day-Of-Week">Пн</button>
                     <button class="day-Of-Week">Вт</button>
@@ -16,13 +17,35 @@ export class LeftSideApp extends React.Component{
                     <button class="day-Of-Week">Сб</button>
                     <button class="day-Of-Week">Вс</button>
                 </div>
+                */}
+
+
+
+
+                <AppDishes />
+                <AppDishes />
+                <AppDishes />
+                <AppDishes />
                 
+
+
+
+
+
+
+
+
+
+
+
+
+                {/* 
                 <div id="boxBreakfast">
                     <div class="box-title">
                         <div>Завтрак</div>
                         <div style={{display:'flex'}}>
                             <div>
-                                <AppDishesInput />
+                                <AppDishes />
                             </div>
                             <div style={{display:'flex'}}>
                                 <div class="inputContainer-box">
@@ -79,7 +102,7 @@ export class LeftSideApp extends React.Component{
                         <div>Обед</div>
                         <div style={{display:'flex'}}>
                             <div>
-                                <AppDishesInput />
+                                <AppDishes />
                             </div>
                             <div style={{display:'flex'}}>
                                 <div class="inputContainer-box">
@@ -113,7 +136,7 @@ export class LeftSideApp extends React.Component{
                     </div>
                     <div style={{display:'flex'}}>
                             <div>
-                                <AppDishesInput />
+                                <AppDishes />
                             </div>
                             <div style={{display:'flex'}}>
                                 <div class="inputContainer-box">
@@ -212,7 +235,7 @@ export class LeftSideApp extends React.Component{
                     </div>
                     <button class='addProduct'>+Добавить продукт</button>
                 </div>
-            
+                */}
             </div>
         )
     }
