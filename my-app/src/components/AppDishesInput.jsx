@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 const API_KEY = "bE5jkB34hMsZTgFN80jBrYa138RbukvmUiOMSCLe";
 
 
-
+{/*
 export class AppDishes extends React.Component{
     constructor(){
         super()   
@@ -18,15 +18,21 @@ export class AppDishes extends React.Component{
         )
     }
 }
+ */}
 
-class Result extends React.Component{
+export class AppDishes extends React.Component{
     constructor(){
         super()  
         
         
         this.state = {
             totalGramm: 0,
+
             cCal:0,
+            Carbohydrates: 0,
+            Fats: 0,
+            Proteins: 0,
+
             totalCcal: 0,
             totalCarbohydrates: 0,
             totalFats: 0,
@@ -35,44 +41,56 @@ class Result extends React.Component{
             items: []
         }
     }
-    setCcal(value){
-        
-        this.setState({
-            cCal: value/100
-        })
 
-    }
     setTotalGramm(value){
         this.setState({
             totalGramm: value
         })
 
     }
-    setTotalCcal(){
-        
+
+    setTotalCcal(totalCcal){    
         this.setState({
-            totalCcal: this.state.cCal * this.state.totalGramm
+            cCal: totalCcal
         })
 
     }
-    setTotalCarbohydrates(value){
+    setTotalCarbohydrates(totalCarbohydrates){
         this.setState({
-            totalCarbohydrates: value/100
+            Carbohydrates: totalCarbohydrates
         })
 
     }
-    setTotalFats(value){
+    setTotalFats(totalFats){
         this.setState({
-            totalFats: value/100
+            Fats: totalFats
         })
 
     }
-    setTotalProteins(value){
+    setTotalProteins(totalProteins){
         this.setState({
-            totalProteins: value
+            Proteins: totalProteins
         })
 
     }
+    setTotal(){
+        this.setState({
+            totalCcal: this.state.totalCcal + this.state.cCal,
+            totalCarbohydrates: this.state.totalCarbohydrates + this.state.Carbohydrates,
+            totalFats: this.state.totalFats + this.state.Fats,
+            totalProteins: this.state.totalProteins + this.state.Proteins,
+        })   
+        console.log(this.state.totalCcal)
+        console.log(this.state.totalCarbohydrates)
+        console.log(this.state.totalFats)
+        console.log(this.state.totalProteins)
+    }
+
+
+
+
+
+
     handleSubmit() {
         const newItem = {
           id: ''
@@ -89,12 +107,17 @@ class Result extends React.Component{
         return(
             <div id="boxBreakfast">
             <div class="box-title">
-                <div style={{marginBottom:'15px'}}>Завтрак</div>
+                <div style={{marginBottom:'15px'}}>{this.props.name}</div>
             </div>
 
             <AppDishesBoxList 
-             items={this.state.items}
-             totalProteins={this.setTotalProteins.bind(this)}
+                items={this.state.items}
+
+                totalCcal={this.setTotalCcal.bind(this)}
+                totalCarbohydrates={this.setTotalCarbohydrates.bind(this)}
+                totalFats={this.setTotalFats.bind(this)}
+                totalProteins={this.setTotalProteins.bind(this)}
+             
              />
 
             <div style={{display:'flex', justifyContent:'center'}}>
@@ -104,7 +127,7 @@ class Result extends React.Component{
             </div>
 
             <div style={{fontSize:'34px'}}>
-                Итого
+                Итого <button onClick={this.setTotal.bind(this)}>BAM</button>
             </div>
 
             <div style={{display:'flex', fontSize:'34px',justifyContent:'center'}}>
@@ -121,11 +144,24 @@ class Result extends React.Component{
 class AppDishesBoxList extends React.Component{
     constructor(){
         super()
+
     }
     
-    setTotalProteins(value){
+    setTotalCcal(totalCcal){
         
-        this.props.totalProteins(value)
+        this.props.totalCcal(totalCcal)
+    }
+    setTotalCarbohydrates(totalCarbohydrates){
+        
+        this.props.totalCarbohydrates(totalCarbohydrates)
+    }
+    setTotalFats(totalFats){
+        
+        this.props.totalFats(totalFats)
+    }
+    setTotalProteins(totalProteins){
+        
+        this.props.totalProteins(totalProteins)
     }
 
     render(){
@@ -134,7 +170,13 @@ class AppDishesBoxList extends React.Component{
                 {this.props.items.map(item => (
                     <AppDishesProductBox 
                         name={item.id}
+
+                        totalCcal={this.setTotalCcal.bind(this)}
+                        totalCarbohydrates={this.setTotalCarbohydrates.bind(this)}
+                        totalFats={this.setTotalFats.bind(this)}
                         totalProteins={this.setTotalProteins.bind(this)}
+
+                        
 
                     />
 
@@ -151,56 +193,85 @@ class AppDishesProductBox extends React.Component{
         
         this.state = {
             totalGramm: 0,
+
             cCal:0,
+            Carbohydrates:0,
+            Fats:0,
+            Proteins:0,
+
             totalCcal: 0,
             totalCarbohydrates: 0,
             totalFats: 0,
-            totalProteins: 0
-        }
-    }
-    setCcal(value){
-        
-        this.setState({
-            cCal: value/100
-        })
+            totalProteins: 0,
 
+            check: false
+        }
+        this.setGramm = this.setGramm.bind(this)
+        this.setCcal = this.setCcal.bind(this)
+        this.setCarbohydrates = this.setCarbohydrates.bind(this)
+        this.setFats = this.setFats.bind(this)
+        this.setProteins = this.setProteins.bind(this)
+        this.setTotal = this.setTotal.bind(this)
     }
-    setTotalGramm(value){
+
+    setGramm(value){
         this.setState({
             totalGramm: value
         })
 
     }
-    setTotalCcal(){
-        
+    setCcal(value){
         this.setState({
-            totalCcal: this.state.cCal * this.state.totalGramm
+            cCal: value/100
         })
 
     }
-    setTotalCarbohydrates(value){
+    setCarbohydrates(value){
         this.setState({
-            totalCarbohydrates: value/100
+            Carbohydrates: value/100
         })
 
     }
-    setTotalFats(value){
-        value = value/100
-        this.props.totalFats(value)
-        
-        //this.setState({
-        //    totalFats: value/100
-        //})
+    setFats(value){
+        this.setState({
+            Fats: value/100
+        })
 
     }
-    setTotalProteins(value){
-        value = value/100
-        this.props.totalProteins(value)
-        
-        //this.setState({
-        //    totalProteins: value/100
-        //})
+    setProteins(value){
+        this.setState({
+            Proteins: value/100
+        })
 
+    }
+    setTotal(){
+        this.setState({
+            totalCcal: this.state.cCal * this.state.totalGramm,
+            totalCarbohydrates: this.state.Carbohydrates * this.state.totalGramm,
+            totalFats: this.state.Fats * this.state.totalGramm,
+            totalProteins: this.state.Proteins * this.state.totalGramm,
+        })
+
+        const totalCcal = this.state.totalCcal
+        const totalCarbohydrates = this.state.totalCarbohydrates
+        const totalFats = this.state.totalFats
+        const totalProteins = this.state.totalProteins
+
+        this.props.totalCcal(totalCcal)    
+        this.props.totalCarbohydrates(totalCarbohydrates)
+        this.props.totalFats(totalFats)
+        this.props.totalProteins(totalProteins)
+
+        console.log(totalCcal)
+        console.log(totalCarbohydrates)
+        console.log(totalFats)
+        console.log(totalProteins)
+
+
+
+
+        //this.props.check()
+        
     }
 
     render(){
@@ -212,16 +283,16 @@ class AppDishesProductBox extends React.Component{
                             <AppDishesInput />
                         </div>
                         <div style={{display:'flex'}}>
-                            <AppDishesInputGramm onValue={this.setTotalGramm.bind(this)} />
-                            <AppDishesInputCcal onValue={this.setCcal.bind(this)} />
-                            <button onClick={this.setTotalCcal.bind(this)}>bum</button>
+                            <AppDishesInputGramm onValue={this.setGramm} />
+                            <AppDishesInputCcal onValue={this.setCcal} />
+                            <button onClick={this.setTotal}>bum</button>
                         </div>
                     </div>
                 <div class="inputContainer">
                     <div class="inputContainer-up">
-                        <AppDishesInputCarbohydrates onValue={this.setTotalCarbohydrates.bind(this)} />
-                        <AppDishesInputFats onValue={this.setTotalFats.bind(this)} />
-                        <AppDishesInputProteins onValue={this.setTotalProteins.bind(this)} />
+                        <AppDishesInputCarbohydrates onValue={this.setCarbohydrates} />
+                        <AppDishesInputFats onValue={this.setFats} />
+                        <AppDishesInputProteins onValue={this.setProteins} />
                         {/*
                         <div class="inputContainer-box">
                             <span>Итого кКал: </span><br />

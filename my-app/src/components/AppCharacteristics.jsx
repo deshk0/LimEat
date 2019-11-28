@@ -179,45 +179,47 @@ class Result extends React.Component{
             <div class="characteristic-container">
                 
                 <div class="characteristic-container-characteristic">
+                    <div class="characteristic-container-traning">
+                        <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px"}}>Уровень дневной активности</div>
+                        <CharacteristicsInputActivity onValue={this.setActivity.bind(this)} />
+                        <CharacteristicsInputGender onValue={this.setGender.bind(this)} />
+                    </div>
+
                     <div style={{display:"flex"}}>
                         <CharacteristicsInputHeight name={'Рост'} onValue={this.onClickHeight.bind(this)}  />
                         <CharacteristicsInputWeight name={'Вес'} onValue={this.onClickWeight.bind(this)}  />
                         <CharacteristicsInputAge name={'Возраст'} onValue={this.onClickAge.bind(this)}  />
-                        
-                        {/*<CharacteristicsForm
+                        <div style={{margin:"auto 0", float:"right"}}>
+                            <button onClick={(event) => {this.indexFormule(event); this.dailyNormal(event)}} >Рассчитать</button>
+                        </div>
+                    </div>
 
+
+
+
+                        {/*<CharacteristicsForm
                             name={'Рост'}
                             AnyValue={this.onClick.bind(this)}
                         />
                         <CharacteristicsForm
-
                             name={'Вес'}
                             AnyValue={this.onClick.bind(this)}
-
                         />
                         <CharacteristicsForm
-
                             name={'Возраст'}
                             AnyValue={this.onClick.bind(this)}
-
                         />
                         */}
-                        <div class="characteristic-container-traning">
-                            <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px"}}>Уровень дневной активности</div>
-                            <CharacteristicsInputActivity onValue={this.setActivity.bind(this)} />
-                            <CharacteristicsInputGender onValue={this.setGender.bind(this)} />
-                            <button onClick={(event) => {this.indexFormule(event); this.dailyNormal(event)}} > РАссчитать</button>
-                        </div>
-                    </div>
+                    
                 
                 
                 <div>
  
-                    <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px",marginLeft:"62px", marginTop:"20px"}}>Результат</div>
-                        <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
+                    <div style={{fontSize:"20px", color:"blue",fontWeight:"600",marginBottom:"16px", marginTop:"20px"}}>Результат</div>
+                        <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",}}>
                         Индекс массы тела: {this.state.index} {this.state.normalWeight}
                         </div>
-                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",marginLeft:"62px"}}>
+                    <div style={{fontSize:"20px", color:"black",fontWeight:"400",marginBottom:"16px",}}>
                         Суточная норма калорий: {this.state.dailyNormal} кКал 
                     </div>
                     {/*

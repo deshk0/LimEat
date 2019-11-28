@@ -10,13 +10,25 @@ export class MyApp extends React.Component{
     render(){
         return(
             <div class="wrapper">
-                <div class="main">
-                    <div><LeftSideApp /></div>
-                    <div><RightSideApp /></div>
-                </div>
+                <Full />
             </div>
         )
     }
     
 }
+class Full extends React.Component{
+    render(){
+        return(
+            <div class="main">
+                <div><LeftSideApp /></div>
+                <div><RightSideApp /></div>
+            </div>
+        )
+    }
+}
 
+class MyApp2 extends React.Component{
+    render(){
+        return
+    }
+}
