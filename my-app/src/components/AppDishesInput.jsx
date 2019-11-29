@@ -79,11 +79,22 @@ export class AppDishes extends React.Component{
             totalCarbohydrates: this.state.totalCarbohydrates + this.state.Carbohydrates,
             totalFats: this.state.totalFats + this.state.Fats,
             totalProteins: this.state.totalProteins + this.state.Proteins,
-        })   
-        console.log(this.state.totalCcal)
-        console.log(this.state.totalCarbohydrates)
-        console.log(this.state.totalFats)
-        console.log(this.state.totalProteins)
+        },() => {
+            const totalCcal = this.state.totalCcal
+            const totalCarbohydrates = this.state.totalCarbohydrates
+            const totalFats = this.state.totalFats
+            const totalProteins = this.state.totalProteins
+    
+            this.props.totalCcal(totalCcal)    
+            this.props.totalCarbohydrates(totalCarbohydrates)
+            this.props.totalFats(totalFats)
+            this.props.totalProteins(totalProteins)
+    
+            console.log(this.state.totalCcal)
+            console.log(this.state.totalCarbohydrates)
+            console.log(this.state.totalFats)
+            console.log(this.state.totalProteins)
+        })
     }
 
 
@@ -250,7 +261,7 @@ class AppDishesProductBox extends React.Component{
             totalCarbohydrates: this.state.Carbohydrates * this.state.totalGramm,
             totalFats: this.state.Fats * this.state.totalGramm,
             totalProteins: this.state.Proteins * this.state.totalGramm,
-        })
+        }, () => {
 
         const totalCcal = this.state.totalCcal
         const totalCarbohydrates = this.state.totalCarbohydrates
@@ -272,7 +283,8 @@ class AppDishesProductBox extends React.Component{
 
         //this.props.check()
         
-    }
+    });
+}
 
     render(){
         return(

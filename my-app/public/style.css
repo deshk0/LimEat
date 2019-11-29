@@ -7,14 +7,22 @@ body{
     font-family: 'roboto';
 
 }
+/*
 .wrapper{
     display: flex;
     justify-content: center;
 }
+*/
 
 .main{
     display: flex;
     justify-content: center;
+}
+@media(max-width: 1500px){
+    .main{
+        display: flex;
+        justify-content: flex-start;
+    }
 }
 
 /* STYLES FOR LEFT SIDE APP */
