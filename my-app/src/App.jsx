@@ -10,6 +10,7 @@ export class MyApp extends React.Component{
     render(){
         return(
             <div class="wrapper">
+                <div style={{color:'black'}}>Opa</div>
                 <Full />
             </div>
         )
